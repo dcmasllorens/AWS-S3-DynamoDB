@@ -26,7 +26,7 @@ resources:
       Properties:
         TableName: s3-data
         AttributeDefinitions:
-          - AttributeName: CreationDate
+          - AttributeName: ObjectName
             AttributeType: S
         KeySchema:
           - AttributeName: ObjectName

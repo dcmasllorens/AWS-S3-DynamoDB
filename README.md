@@ -83,11 +83,13 @@ POST DYNAMO DB
 
 SERVERLESS: 
 
-https://www.serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys
+first steps https://www.serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys
 
+DynamoDB: https://www.serverless.com/examples/?prod_EXAMPLES_SEARCH_GROWTH%5Bquery%5D=dynamodb&prod_EXAMPLES_SEARCH_GROWTH%5BrefinementList%5D%5Bplatform%5D%5B0%5D=aws&prod_EXAMPLES_SEARCH_GROWTH%5BrefinementList%5D%5Blanguage%5D%5B0%5D=node
 
 ~~~~
 serverless config credentials --provider aws --key <key> --secret <secret key>
 ~~~~
 
 sls remove
+
