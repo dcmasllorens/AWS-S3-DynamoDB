@@ -1,0 +1,36 @@
+org: casadin
+app: aws-s3-dynamodb
+service: aws-s3-dynamodb
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  iam:
+      role: arn:aws:iam::174085919310:role/service-role/s3-cats-role
+
+functions:
+  postprocess:
+    handler: handler.lambda
+    events:
+      - s3:
+          bucket: arn:aws:s3:::s3-info-json-api
+          event: s3:ObjectCreated:*
+          existing: true
+
+resources:
+  Resources:
+    usersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: s3-data
+        AttributeDefinitions:
+          - AttributeName: CreationDate
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ObjectName
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
