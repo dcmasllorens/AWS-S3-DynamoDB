@@ -19,7 +19,7 @@ module.exports.lambda = async (event) => {
     "TableName": 's3-data',
     "Item": {
       "ObjectName": { "S": key },
-      "CreationDate": { "S": creationDate },
+      "CreationDate": { "S": creationDate }
     }
   };
 

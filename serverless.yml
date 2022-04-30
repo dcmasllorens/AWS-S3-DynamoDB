@@ -2,20 +2,21 @@ org: casadin
 app: aws-s3-dynamodb
 service: aws-s3-dynamodb
 
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs14.x
+  region: eu-west-3
   iam:
-      role: arn:aws:iam::174085919310:role/service-role/s3-cats-role
+    role: arn:aws:iam::174085919310:role/service-role/s3-cats-role
 
 functions:
   postprocess:
     handler: handler.lambda
     events:
       - s3:
-          bucket: arn:aws:s3:::s3-info-json-api
+          bucket: s3-info-json-api
           event: s3:ObjectCreated:*
           existing: true
 
@@ -24,7 +25,7 @@ resources:
     usersTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: s3-data
+        TableName: s3-data-info
         AttributeDefinitions:
           - AttributeName: ObjectName
             AttributeType: S
