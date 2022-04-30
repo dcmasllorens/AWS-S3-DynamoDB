@@ -1,25 +1,35 @@
 # AWS S3-LAMBDA-DYNAMODB
 
-S3: https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
+[First Steps](https://www.serverless.com/framework/docs/getting-started)
 
-POST DYNAMO DB 
-    - https://docs.amplify.aws/guides/functions/dynamodb-from-js-lambda/q/platform/js/#scanning-a-table
-    - https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#put-property
-
-
-
-SERVERLESS: 
-
-first steps https://www.serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys
-
-DynamoDB: https://www.serverless.com/examples/?prod_EXAMPLES_SEARCH_GROWTH%5Bquery%5D=dynamodb&prod_EXAMPLES_SEARCH_GROWTH%5BrefinementList%5D%5Bplatform%5D%5B0%5D=aws&prod_EXAMPLES_SEARCH_GROWTH%5BrefinementList%5D%5Blanguage%5D%5B0%5D=node
-
-https://serverlessfirst.com/create-iam-deployer-roles-serverless-app/
-
-https://www.serverless.com/framework/docs/providers/aws/guide/iam
+[Configurable credentials](https://www.serverless.com/framework/docs/providers/aws/guide/credentials#creating-aws-access-keys)
 
 ~~~~
 serverless config credentials --provider aws --key <key> --secret <secret key>
 ~~~~
 
-sls remove
+[Serverless S3 example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
+
+[Serverless DynamoDB example](https://www.serverless.com/examples/aws-node-express-dynamodb-api)
+
+[Creating Role](https://serverlessfirst.com/create-iam-deployer-roles-serverless-app/)
+
+These is the documentation that I follow for configure serverless with AWS.
+
+![Role](./images/role.png)
+
+![Serverless](./images/serverless.png)
+
+After this, I configure ci/cd deploys with GitHub
+
+![CI-CD](./images/ci_cd.png)
+
+![CI-CD deploy](./images/ci_cd_action.png)
+
+## Demostration
+
+I upload a image to a S3 you can see the Last Modified Date is ***April 30, 2022, 15:47:45 (UTC+02:00)*** this is the time on the time zone eu-west-3 but in DynamoDB appears the CreationDate in the UTC TIME ***2022-4-30 13:47:47***, this time zone is two hours less than eu-west-3.
+
+![S3](./images/s3.png)
+
+![Dynamo DB](./images/dynamo.png)
