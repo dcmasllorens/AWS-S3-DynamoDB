@@ -8,7 +8,7 @@
 serverless config credentials --provider aws --key <key> --secret <secret key>
 ~~~~
 
-[Serverless S3 example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
+[S3 example](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
 
 [Serverless DynamoDB example](https://www.serverless.com/examples/aws-node-express-dynamodb-api)
 
